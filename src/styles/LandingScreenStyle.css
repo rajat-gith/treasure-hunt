@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
 .LandingScreen {
     height: 100vh;
 
@@ -28,6 +30,8 @@
     color: #3D1706;
     justify-content: center;
     text-align: center;
+    font-family: 'Pirata One', cursive;
+
 }
 
 .description {
@@ -36,6 +40,8 @@
     width: 80%;
     justify-content: center;
     text-align: center;
+    font-family: 'Pirata One', cursive;
+
 }
 
 .landing_image {
@@ -61,6 +67,8 @@
     translate: 1s;
     font-size: larger;
     text-align: center;
+    font-family: 'Pirata One', cursive;
+
 
 }
 
@@ -83,6 +91,7 @@
         font-size: 1rem;
         width: 90%;
     }
+
     .landing_image>img {
         object-fit: contain;
         width: 100%;

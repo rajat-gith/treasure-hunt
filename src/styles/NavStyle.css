@@ -1,0 +1,63 @@
+.Nav {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.navlinks {
+    display: flex;
+    width: 30%;
+    height: 60px;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-evenly;
+}
+
+.menu-icon {
+    display: none;
+
+}
+
+.navlinks p {
+    font-size: 20px;
+    font-family: 'Pirata One', cursive;
+    cursor: pointer;
+    color: #3D1706;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+
+
+    .navlinks {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        background: #3D1706;
+        margin-top: 60px;
+        width: 0px;
+        height: 150px;
+        transition: all 0.3s ease-in;
+        overflow: hidden;
+        margin-left: 10px;
+        margin-right: 10px;
+        justify-content: center;
+        border-radius: 10px;
+    }
+
+    .navlinks.active {
+        width: 90%;
+        padding: auto;
+
+    }
+
+    .navlinks p {
+        color: yellow;
+    }
+
+    .menu-icon {
+        display: block;
+        padding: 10px;
+    }
+}

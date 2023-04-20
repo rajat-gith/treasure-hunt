@@ -3,9 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/LandingScreenStyle.css";
 import { auth, provider } from "../firebaseconfig";
 import { signInWithPopup } from "firebase/auth";
+import Nav from "../components/Nav";
+
 
 function LandingScreen() {
   const [value, setValue] = useState("");
+  const [userName,setUserName]=useState("");
   const navigate = useNavigate();
   const handleClick = () => {
     signInWithPopup(auth, provider).then((data) => {
@@ -17,6 +20,7 @@ function LandingScreen() {
 
   useEffect(() => {
     setValue(localStorage.getItem("email"));
+    setUserName(localStorage.getItem("displayName"))
     console.log(value);
     if (value) {
       navigate("/game");
@@ -26,6 +30,7 @@ function LandingScreen() {
   });
   return (
     <div className="LandingScreen">
+      <Nav/>
       <div className="landingScreenContent">
         <p className="title">Treasure Hunt</p>
         <div className="landing_image">
