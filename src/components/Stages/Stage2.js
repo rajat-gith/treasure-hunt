@@ -1,63 +1,76 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Puzzle from "react-image-puzzle";
 import "../../styles/StageStyle.css";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Timer from "../Timer";
-import { useDispatch, useSelector } from "react-redux";
+import { db, auth } from "../../firebaseconfig";
+import { useStopwatch } from "react-timer-hook";
 import { setStage } from "../../actions/stageActions";
+import { useDispatch } from "react-redux";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { doc, updateDoc } from "firebase/firestore";
+import { query, collection, getDocs, where } from "firebase/firestore";
 
 function Stage2() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const { seconds, minutes, hours, days, start, pause, reset } = useStopwatch({
+    autoStart: true,
+  });
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.currentStage);
-  const handleClose = () => setOpen(false);
+  const [timeSec, setSeconds] = useState(0);
+  const [uid, setUid] = useState("");
+  const time = new Date();
+  const [docId, setdocId] = useState("");
+  time.setSeconds(time.getSeconds() + 10);
 
-  const changeState = () => {
-    dispatch(setStage("Stage3"));
-    handleClose();
-    console.log("Clicked")
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, get their UID
+      const uid = user.uid;
+      setUid(uid);
+      // console.log(uid);
+    } else {
+      // User is signed out
+      console.log("No user is signed in.");
+    }
+  });
+  const fetchUserName = async () => {
+    const q = query(collection(db, "users"), where("uid", "==", uid));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      // console.log(doc.id, " => ", doc.data());
+      setdocId(doc.id);
+    });
   };
   useEffect(() => {
-    setTimeout(() => {
-      setOpen("true");
-    }, 10000);
-    changeState();
-  }, [dispatch]);
-
-  const time = new Date();
-  time.setSeconds(time.getSeconds() + 10);
+    fetchUserName();
+  });
 
   return (
     <div className="Stage_2">
-      <Timer expiryTimestamp={time} />
+      <div style={{ textAlign: "center" }}>
+        <div style={{ fontSize: "30px" }}>
+          <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
+          <span>{seconds}</span>
+        </div>
+      </div>
       <Puzzle
         className="PuzzleDiv"
+        onDone={() => {
+          const docRef = doc(db, "users", docId);
+          updateDoc(docRef, {
+            puzzletime: [{ seconds }, { minutes }, { hours }],
+          })
+            .then((doc) => {
+              console.log(
+                "A New Document Field has been added to an existing document"
+              );
+              dispatch(setStage("STAGE3"));
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }}
         image="https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638892282/EducationHub/photos/isaac-newton-kneller-painting.jpg"
       />
-
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box className="modalBox">
-          <h2>Choose the Correct Movie</h2>
-          <div className="options">
-            <Box className="opt_1">
-              <p>The Avengers</p>
-            </Box>
-            <Box onClick={changeState} className="opt_2">
-              <p>Avengers EndGame</p>
-            </Box>
-            <Box className="opt_3">
-              <p>Avengers Infinity War</p>
-            </Box>
-          </div>
-        </Box>
-      </Modal>
     </div>
   );
 }

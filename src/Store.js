@@ -5,9 +5,20 @@ import {
   createwithDevTools,
 } from "redux-devtools-extension";
 import { stageReducer } from "./reducers/ActiveStageReducers";
+import { persistStore, persistReducer } from "redux-persist";
+import { scoreReducer } from "./reducers/ScoreReducers";
 
-const reducer = combineReducers({ currentStage: stageReducer });
-const initialState = {};
+const stageInfoFromStorage = localStorage.getItem("stageInfo")
+  ? JSON.parse(localStorage.getItem("stageInfo"))
+  : "Stage1";
+
+const reducer = combineReducers({
+  currentStage: stageReducer,
+  currentScore: scoreReducer,
+});
+const initialState = {
+  currentStage: { stage: stageInfoFromStorage },
+};
 const middleware = [thunk];
 const store = createStore(
   reducer,

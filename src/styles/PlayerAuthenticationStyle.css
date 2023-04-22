@@ -1,0 +1,93 @@
+.PlayerLogin,
+.PlayerRegister {
+    display: flex;
+    overflow-y: hidden;
+    justify-content: center;
+}
+
+.bg {
+    width: 50%;
+
+}
+
+.bg>img {
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+}
+
+.login_window {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_window>p {
+    padding: 10px;
+    font-size: 30px;
+}
+
+.LoginForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button>button,
+.login__btn {
+
+    margin-top: 10px;
+    height: 40px;
+    border: 0px;
+    width: 50%;
+    border-radius: 10px;
+    background: #6B8836;
+    color: white;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.button>a {
+    width: 50%;
+}
+
+.LoginButton {
+    margin-top: 10px;
+    height: 40px;
+    border: 0px;
+    width: 100%;
+    border-radius: 10px;
+    background: #6B8836;
+    color: white;
+    cursor: pointer;
+    margin: 2px;
+}
+
+@media only screen and (min-width:320px) and (max-width:576px) {
+    .Player {
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+    }
+
+    .bg {
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+
+    }
+
+    .login_window {
+        width: 80%;
+    }
+
+}

@@ -1,4 +1,13 @@
-.Stage_1 ,.Stage_2{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.Stage_1,
+.Stage_2,
+.Stage_3,
+.Stage_4,
+.Stage_5,
+.Stage_6,
+.Stage_7,
+.FinalStage {
     display: flex;
     background-color: white;
     width: 50%;
@@ -8,23 +17,94 @@
     border-radius: 0px 0px 10px 10px;
     background: rgba(255, 255, 255, 0.3);
     padding: 0px 10px 0px 10px;
+    text-align: center;
     /* This controls the blurring effect*/
     backdrop-filter: blur(7.5px);
     -webkit-backdrop-filter: blur(7.5px);
     flex-direction: column;
 }
 
-.opt_1 p, .opt_2 p, .opt_3 p
-{
+.stage_title {
+    font-size: 20px;
+    padding-top: 7px;
+    top: 0;
+    position: absolute;
+    display: flex;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.options>button {
+    height: 60px;
+    margin: 5px;
+    font-size: 25px;
+    border-radius: 10px;
+    border: 0;
+}
+
+.Stage_1 p,
+.Stage_2 p,
+.Stage_3 p,
+.Stage_4 p,
+.Stage_5 p,
+.Stage_6 p,
+.Stage_7 p,
+.FinalStage p {
+    font-size: 20px;
+    margin-top: 35px;
+
+}
+
+.opt_1 p,
+.opt_2 p,
+.opt_3 p {
     background: rgb(212, 239, 209);
     margin-top: 5px;
     border-radius: 5px;
     text-align: center;
+    cursor: pointer;
 }
+
+.option_buttons {
+    display: flex;
+    width: 50%;
+    cursor: pointer;
+}
+
+.option_buttons>button {
+    margin-top: 10px;
+    height: 40px;
+    border: 0px;
+    width: 50%;
+    border-radius: 10px;
+    background: #6B8836;
+    color: white;
+    cursor: pointer;
+    margin: 2px;
+}
+
 @media only screen and (max-width: 768px) {
-    .Stage_1 {
+
+
+
+    .Stage_1,
+    .Stage_2,
+    .Stage_3,
+    .Stage_4,
+    .Stage_5,
+    .Stage_6,
+    .Stage_7,
+    .FinalStage {
         width: 95%;
         height: 400px;
-        padding: 0px 5px 0px 5px ;
+        padding: 0px 5px 0px 5px;
+    }
+
+    .options>button {
+        height: 100px;
     }
 }

@@ -3,7 +3,7 @@ import Modal from "@mui/material/Modal";
 import "../styles/GameScreenStyle.css";
 import Box from "@mui/material/Box";
 import axios from "axios";
-
+import { useAuthState } from "react-firebase-hooks/auth";
 import Stage1 from "../components/Stages/Stage1";
 import Stage2 from "../components/Stages/Stage2";
 import Stage3 from "../components/Stages/Stage3";
@@ -11,29 +11,60 @@ import Stage4 from "../components/Stages/Stage4";
 import Stage5 from "../components/Stages/Stage5";
 import Stage6 from "../components/Stages/Stage6";
 import Stage7 from "../components/Stages/Stage7";
+import FinalStage from "../components/Stages/FinalStage";
 import { useDispatch, useSelector } from "react-redux";
 import { setStage } from "../actions/stageActions";
+import { logout, auth, db } from "../firebaseconfig";
+import { useNavigate } from "react-router-dom";
+import { query, collection, getDocs, where } from "firebase/firestore";
+import { useStopwatch } from "react-timer-hook";
 
 function GameScreen() {
   const [open, setOpen] = useState(true);
   const [imgUrl, setImageUrl] = useState("");
+  const [name, setName] = useState("");
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [start, setStart] = useState(false);
   const [active, setActive] = useState("Stage1");
   const [accuracy, setAccuracy] = useState("0.00");
   const [score, setScore] = useState("0.00");
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+  const { seconds, minutes, hours, days, isRunning, start, pause, reset } =
+    useStopwatch({ autoStart: true });
 
   const currentStage = useSelector((state) => state.currentStage);
   const { stage } = currentStage;
-  console.log(stage);
+
+  const fetchUserName = async () => {
+    try {
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+
+      setName(data.name);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+
   useEffect(() => {
     setActive(stage);
     console.log("active");
-  }, [stage]);
+    if (loading) return;
+    if (!user) return navigate("/");
+    fetchUserName();
+  }, [stage, user, loading]);
 
   return (
     <div className="GameScreen">
+      <div style={{ textAlign: "center" }}>
+        <div style={{ fontSize: "40px" }}>
+          <span>Time Taken: </span>
+          <span>{minutes}</span>:<span>{seconds}</span>
+        </div>
+      </div>
       <div className="tracker">
         {active == "Stage1" ? (
           <img
@@ -132,12 +163,26 @@ function GameScreen() {
             alt=""
           />
         )}
+        {active == "FinalStage" ? (
+          <img
+            className="Active"
+            src="https://i.imgur.com/yxgCXO8.jpg"
+            alt=""
+          />
+        ) : (
+          <img
+            className="InActive"
+            src="https://i.imgur.com/yxgCXO8.jpg"
+            alt=""
+          />
+        )}
       </div>
       <div className="score_board">
-        <p>Hello {localStorage.getItem("displayName").split(" ")[0]}</p>
+        <p>Hello {name}</p>
 
         <p>Score:{score}</p>
-        <p>Accuracy:{accuracy}</p>
+        {/* <p>Accuracy:{accuracy}</p> */}
+        <button onClick={logout}>Logout</button>
       </div>
 
       <Modal
@@ -172,6 +217,43 @@ function GameScreen() {
           {active == "Stage2" ? (
             <div className="stage_2">
               <Stage2 />
+              {/* <button>Next</button> */}
+            </div>
+          ) : null}
+
+          {active == "Stage3" ? (
+            <div className="stage_3">
+              <Stage3 />
+              {/* <button>Next</button> */}
+            </div>
+          ) : null}
+          {active == "Stage4" ? (
+            <div className="stage_4">
+              <Stage4 />
+              {/* <button>Next</button> */}
+            </div>
+          ) : null}
+          {active == "Stage5" ? (
+            <div className="stage_5">
+              <Stage5 />
+              {/* <button>Next</button> */}
+            </div>
+          ) : null}
+          {active == "Stage6" ? (
+            <div className="stage_6">
+              <Stage6 />
+              {/* <button>Next</button> */}
+            </div>
+          ) : null}
+          {active == "Stage7" ? (
+            <div className="stage_7">
+              <Stage7 />
+              {/* <button>Next</button> */}
+            </div>
+          ) : null}
+          {active == "FinalStage" ? (
+            <div className="stage_Final">
+              <FinalStage seconds={seconds} minutes={minutes} hours={hours} />
               {/* <button>Next</button> */}
             </div>
           ) : null}

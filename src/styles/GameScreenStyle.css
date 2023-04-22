@@ -22,7 +22,20 @@
     border: 2px solid rgb(130, 216, 116);
     border-radius: 10px;
     padding: 4px;
+    background: "#FFFF00";
     transition: all 0.3s ease-in;
+}
+
+.score_board>button {
+    margin-top: 10px;
+    height: 30px;
+    border: 0px;
+    width: 20%;
+    border-radius: 10px;
+    background: #6B8836;
+    color: white;
+    cursor: pointer;
+    margin: 2px;
 }
 
 .score_board p {
@@ -83,7 +96,8 @@ h1 {
 .stage_4,
 .stage_5,
 .stage_6,
-.stage_7 {
+.stage_7,
+.stage_Final {
     width: 100%;
     display: flex;
     justify-content: center;
