@@ -4,6 +4,7 @@ The webapp is meant to identify and measure the softskill of the user interactin
 It has two main utillizations:
 1. To measure the softskills
 2. Admin Site: To have a clear overview of all the users interacting with the game.
+3. On refreshing, from either browser or website, the puzzle start from the same State.
 
 The treasure hunt game has different stages.
 At each stage you will be given a clue and intermediate stages have some puzzles in it.
@@ -17,11 +18,14 @@ You have to gather all the clues and reach to a final conclusion.
 5. Apart running in the local machine you can directly make use of <a href="https://treasure-hunt-v1.netlify.app/" target="_blank">Deployed Link</a>
 
 <h2>Brief Logic</h2>
-In stage 1 the user is given a clue for 10 seconds and then in stage 2, the user needs to solve a challenge.<br/>
-At Stage 3 the user is given another clue for 10 seconds after that a pop-up will be opened.<br/>
-The correct option can be deduced if and only if the user has deduced both clues correctly.<br/>
-From this, the memory power and the grasping power of the user are tested. Since clue 1 is shown for a limited period of time and then the user has to solve the puzzle. Also, Stage 3 is a dead end. Choosing an incorrect one will end the challenge. In stage 2 the amount of time taken to solve the puzzle checks the accuracy of the user.<br/>
-Subsequent stages have different clues embedded in them. Atlast the user has to connect all the clues to reach to the final result.
+The challenge consists of multiple stages that test the user's memory and problem-solving skills.<br/>
+In Stage 1, the user is given a clue for 10 seconds, after which they need to solve a challenge.<br/>
+In Stage 2, the user needs to solve another challenge, and the time taken to do so tests their accuracy.<br/>
+In Stage 3, the user is given another clue for 10 seconds, after which they must choose the correct option to proceed.<br/>
+The correct option can only be deduced if the user has correctly deduced both clues in Stages 1 and 3.<br/>
+Subsequent stages also have clues embedded in them that the user must connect to reach the final result.<br/>
+Stage 3 and Stage 4 are dead ends, and choosing an incorrect option will result in the challenge ending.<br/>
+The challenge is designed to test the user's memory power and grasping power by presenting clues for a limited time and requiring them to solve puzzles.<br/>
 
 
 Future Updates:
