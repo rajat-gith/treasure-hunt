@@ -2,16 +2,14 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebaseconfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import "../styles/AdminSideStyle.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, logout } from "../firebaseconfig";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function AdminDashboard() {
   const [info, setInfo] = useState([]);
-
-  useEffect(() => {
-    // window.location.reload();
-    window.addEventListener("load", () => {
-      fetchData();
-    });
-  });
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     const q = query(collection(db, "users"));
@@ -23,10 +21,21 @@ function AdminDashboard() {
       console.log(doc.data());
     });
   };
-  //
+
   return (
     <div className="AdminDashboard">
       <p>Admin Dashboard</p>
+      <div className="admin_button">
+        <button onClick={fetchData}>Fetch Data</button>
+        <button
+          onClick={() => {
+            logout();
+            navigate("/");
+          }}
+        >
+          LogOut
+        </button>
+      </div>
       {info.map((data) => (
         <div className="div">
           <p>Name : {data.name}</p>

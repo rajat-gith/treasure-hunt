@@ -72,6 +72,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       puzzletime: [],
       authProvider: "local",
       email,
+      isAdmin: false,
       score: 0,
     });
   } catch (err) {

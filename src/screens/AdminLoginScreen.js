@@ -3,22 +3,31 @@ import React, { useEffect, useState } from "react";
 import "../styles/AdminSideStyle.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import {
+  auth,
+  logInWithEmailAndPassword,
+  signInWithGoogle,
+} from "../firebaseconfig";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function AdminLoginScreen() {
   const [adminEmail, setAdminEmail] = useState("");
   const [adminPassword, setAdminPassword] = useState("");
   const navigate = useNavigate();
+  const [user, loading, error] = useAuthState(auth);
 
-  console.log(process.env);
-  const handleSubmit = () => {
-    if (adminEmail == "admin@gmail.com" && adminPassword == "admin") {
+  useEffect(() => {
+    if (loading) {
+      // maybe trigger a loading screen
+      return;
+    }
+    if (user && user.uid == "uuxbmJLF6xWlF8K5gfApNxfrdu43") {
+      console.log(user.uid);
       navigate("/admin/dashboard");
     } else {
-      alert("Enter Correct Credentials");
+      alert("Enter Correct credentials");
     }
-  };
-
-  // useEffect(() => {});
+  }, [user, loading]);
 
   return (
     <div className="Admin">
@@ -50,7 +59,10 @@ function AdminLoginScreen() {
             }}
             variant="filled"
           />
-          <input onClick={handleSubmit} type="submit" />
+          <input
+            onClick={() => logInWithEmailAndPassword(adminEmail, adminPassword)}
+            type="submit"
+          />
           <Link to="/">
             <Button type="outlined">Switch to Play Mode</Button>
           </Link>
