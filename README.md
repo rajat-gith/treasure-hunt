@@ -10,8 +10,7 @@ At each stage you will be given a clue and intermediate stages have some puzzles
 You have to gather all the clues and reach to a final conclusion.
 
 <h2>Steps to setup the project:</h2>
-1.Fork the Repo<br/><br/>
-<a href="https://github.com/rajat-gith/treasure-hunt/" target="_blank">Github Repo</a><br/>
+1.Fork the Repo <a href="https://github.com/rajat-gith/treasure-hunt/" target="_blank">Github Repo</a><br/>
 2. Clone the Repository into local folder.<br/>
 3. Run the command "npm install" to install all packages necessary for the webapp.<br/>
 4. Run "npm start" to use the webapp<br/>
