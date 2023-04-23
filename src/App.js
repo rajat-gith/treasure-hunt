@@ -6,6 +6,7 @@ import AdminLoginScreen from "./screens/AdminLoginScreen";
 import AdminDashboard from "./screens/AdminDashboard";
 import PlayerLoginScreen from "./screens/PlayerLoginScreen";
 import PlayerRegisterScreen from "./screens/PlayerRegisterScreen";
+import ResultWindow from "./screens/ResultWindow";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/admin/dashboard" Component={AdminDashboard} />
           <Route path="/player/login" Component={PlayerLoginScreen} />
           <Route path="/player/register" Component={PlayerRegisterScreen} />
+          <Route path="/player/result" Component={ResultWindow} />
         </Routes>
       </Router>
     </div>

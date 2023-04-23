@@ -9,8 +9,12 @@ function AdminLoginScreen() {
   const [adminPassword, setAdminPassword] = useState("");
   const navigate = useNavigate();
 
+  console.log(process.env);
   const handleSubmit = () => {
-    if (adminEmail == "raj@gmail.com" && adminPassword == "123456") {
+    if (
+      adminEmail == "admin@gmail.com" &&
+      adminPassword == process.env.REACT_APP_ADMIN_PASSWORD
+    ) {
       navigate("/admin/dashboard");
     } else {
       alert("Enter Correct Credentials");

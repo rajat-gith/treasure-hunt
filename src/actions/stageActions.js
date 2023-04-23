@@ -55,4 +55,11 @@ export const setStage = (type) => async (dispatch) => {
     });
     localStorage.setItem("stageInfo", JSON.stringify("FinalStage"));
   }
+  if (type == "RESULTSTAGE") {
+    dispatch({
+      type: "RESULTSTAGE",
+      payload: "ResultStage",
+    });
+    localStorage.setItem("stageInfo", JSON.stringify("FinalStage"));
+  }
 };

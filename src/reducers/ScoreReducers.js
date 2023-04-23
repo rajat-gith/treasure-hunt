@@ -1,11 +1,11 @@
-export const scoreReducer = function (state = { score: 0 }, action) {
+export const scoreReducer = function (score = 0, action) {
   switch (action.type) {
     case "INCREMENT":
-      return { score: state.score + action.payload };
+      return score + action.payload;
     case "DECREMENT":
-      return { score: state.score - action.payload };
+      return score - action.payload;
     default:
-      return state;
+      return score;
   }
 };
 

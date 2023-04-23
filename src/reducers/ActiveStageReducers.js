@@ -16,6 +16,8 @@ export const stageReducer = function (state = { stage: "Stage1" }, action) {
       return { stage: action.payload };
     case "FINALSTAGE":
       return { stage: action.payload };
+    case "RESULTSTAGE":
+      return { stage: action.payload };
     default:
       return state;
   }

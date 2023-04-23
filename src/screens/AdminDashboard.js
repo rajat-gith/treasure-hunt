@@ -17,8 +17,10 @@ function AdminDashboard() {
     const q = query(collection(db, "users"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
+      // console.log(doc.data().totaltime[1].minutes);
+
       setInfo((arr) => [...arr, doc.data()]);
+      console.log(doc.data());
     });
   };
   //
@@ -27,16 +29,17 @@ function AdminDashboard() {
       <p>Admin Dashboard</p>
       {info.map((data) => (
         <div className="div">
-          <p>NAME : {data.name}</p>
+          <p>Name : {data.name}</p>
           <p>Email : {data.email}</p>
           <p>
-            PuzzleTime : {data.puzzletime.seconds} secs :{" "}
-            {data.puzzletime.minutes} mins : {data.puzzletime.hours} hrs
+            PuzzleTime : {data.puzzletime[0].seconds} s :
+            {data.puzzletime[1].minutes} m : {data.puzzletime[2].hours} h
           </p>
           <p>
-            TotalTime : {data.totaltime.seconds} secs : {data.totaltime.minutes}{" "}
-            mins : {data.totaltime.hours} hrs
+            TotalTime : {data.totaltime[0].seconds} s :
+            {data.totaltime[1].minutes} m : {data.totaltime[2].hours} h
           </p>
+          <p>Score: {data.score}</p>
         </div>
       ))}
     </div>

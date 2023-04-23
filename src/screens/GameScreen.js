@@ -18,6 +18,7 @@ import { logout, auth, db } from "../firebaseconfig";
 import { useNavigate } from "react-router-dom";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useStopwatch } from "react-timer-hook";
+import ResultWindow from "./ResultWindow";
 
 function GameScreen() {
   const [open, setOpen] = useState(true);
@@ -50,6 +51,7 @@ function GameScreen() {
   };
 
   useEffect(() => {
+    alert("Switch to Desktop to play the game");
     setActive(stage);
     console.log("active");
     if (loading) return;
@@ -180,7 +182,7 @@ function GameScreen() {
       <div className="score_board">
         <p>Hello {name}</p>
 
-        <p>Score:{score}</p>
+        {/* <p>Score:{score}</p> */}
         {/* <p>Accuracy:{accuracy}</p> */}
         <button onClick={logout}>Logout</button>
       </div>
@@ -194,7 +196,7 @@ function GameScreen() {
         <Box className="modalBox">
           <h1> Instructions</h1>
           <p> The game has different stages.</p>
-          <p> At each stage you will face a new challenge.</p>
+          <p> At each stage you will face a new clue.</p>
           <p>
             You will be judged based on the time taken to complete the task.
           </p>
@@ -254,6 +256,12 @@ function GameScreen() {
           {active == "FinalStage" ? (
             <div className="stage_Final">
               <FinalStage seconds={seconds} minutes={minutes} hours={hours} />
+              {/* <button>Next</button> */}
+            </div>
+          ) : null}
+          {active == "ResultStage" ? (
+            <div className="stage_Result">
+              <ResultWindow seconds={seconds} minutes={minutes} hours={hours} />
               {/* <button>Next</button> */}
             </div>
           ) : null}

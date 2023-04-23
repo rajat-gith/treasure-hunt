@@ -2,9 +2,11 @@ import React from "react";
 import "../../styles/StageStyle.css";
 import { useDispatch } from "react-redux";
 import { setStage } from "../../actions/stageActions";
+import { setScore } from "../../actions/ScoreAction";
 
 function Stage5() {
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
+
   return (
     <div className="Stage_5">
       <span className="stage_title">
@@ -22,11 +24,19 @@ function Stage5() {
         <button
           onClick={() => {
             dispatch(setStage("STAGE6"));
+            dispatch(setScore("INCREMENT", 50));
           }}
         >
           Option 1
         </button>
-        <button>Option 2</button>
+        <button
+          onClick={() => {
+            dispatch(setStage("STAGE6"));
+            dispatch(setScore("INCREMENT", 10));
+          }}
+        >
+          Option 2
+        </button>
       </div>
     </div>
   );

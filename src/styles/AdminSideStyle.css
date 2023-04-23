@@ -63,7 +63,7 @@
 }
 
 .LoginForm>input {
-    width: 250px;
+    width: 70%;
     margin-top: 10px;
     height: 40px;
     border: 0px;
@@ -91,8 +91,8 @@
     .login_window {
         width: 80%;
     }
-    .div
-    {
+
+    .div {
         flex-direction: column;
     }
 

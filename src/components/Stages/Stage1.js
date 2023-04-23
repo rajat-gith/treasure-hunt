@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Puzzle from "react-image-puzzle";
 import "../../styles/StageStyle.css";
 import Timer from "../Timer";
 import Modal from "@mui/material/Modal";

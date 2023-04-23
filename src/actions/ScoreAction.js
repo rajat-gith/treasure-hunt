@@ -6,14 +6,21 @@ export const setScore = (type, score) => async (dispatch) => {
     });
     localStorage.setItem("scoreInfo", JSON.stringify(score));
   }
-};
-
-export const setTimeScore = (type, time) => async (dispatch) => {
-  if (type == "INCREMENT") {
+  if (type == "DECREMENT") {
     dispatch({
-      type: "INCREMENT",
-      payload: Number(time),
+      type: "DECREMENT",
+      payload: Number(score),
     });
-    localStorage.setItem("TimeScoreInfo", JSON.stringify(score));
+    localStorage.setItem("scoreInfo", JSON.stringify(score));
   }
 };
+
+// export const setTimeScore = (type, time) => async (dispatch) => {
+//   if (type == "INCREMENT") {
+//     dispatch({
+//       type: "INCREMENT",
+//       payload: Number(time),
+//     });
+//     localStorage.setItem("TimeScoreInfo", JSON.stringify(score));
+//   }
+// };
