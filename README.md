@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+<h2>Treasure Hunt App</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The webapp is meant to identify and measure the softskill of the user interacting with the webapp.
+It has two main utillizations:
+1. To measure the softskills
+2. Admin Site: To have a clear overview of all the users interacting with the game.
 
-## Available Scripts
+The treasure hunt game has different stages.
+At each stage you will be given a clue and intermediate stages have some puzzles in it.
+You have to gather all the clues and reach to a final conclusion.
 
-In the project directory, you can run:
+<h2>Steps to setup the project:</h2>
+1.Fork the Repo <a href="https://github.com/rajat-gith/treasure-hunt/" target="_blank">Github Repo</a><br/>
+2. Clone the Repository into local folder.<br/>
+3. Run the command "npm install" to install all packages necessary for the webapp.<br/>
+4. Run "npm start" to use the webapp<br/>
+5. Apart running in the local machine you can directly make use of <a href="https://treasure-hunt-v1.netlify.app/" target="_blank">Deployed Link</a>
 
-### `npm start`
+<h2>Brief Logic</h2>
+In stage 1 the user is given a clue for 10 seconds and then in stage 2, the user needs to solve a challenge.<br/>
+At Stage 3 the user is given another clue for 10 seconds after that a pop-up will be opened.<br/>
+The correct option can be deduced if and only if the user has deduced both clues correctly.<br/>
+From this, the memory power and the grasping power of the user are tested. Since clue 1 is shown for a limited period of time and then the user has to solve the puzzle. Also, Stage 3 is a dead end. Choosing an incorrect one will end the challenge. In stage 2 the amount of time taken to solve the puzzle checks the accuracy of the user.<br/>
+Subsequent stages have different clues embedded in them. Atlast the user has to connect all the clues to reach to the final result.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Future Updates:
+1. Addition of more complication puzzles and riddles to test more accurately
