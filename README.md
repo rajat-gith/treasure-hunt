@@ -1,4 +1,4 @@
-Treasure Hunt App
+<h2>Treasure Hunt App</h2>
 
 The webapp is meant to identify and measure the softskill of the user interacting with the webapp.
 It has two main utillizations:
@@ -10,12 +10,12 @@ At each stage you will be given a clue and intermediate stages have some puzzles
 You have to gather all the clues and reach to a final conclusion.
 
 <h2>Steps to setup the project:</h2>
-1.Fork the Repo
-<a href="https://github.com/rajat-gith/treasure-hunt/">Github Repo</a>
-2. Clone the Repository into local folder.
-3. Run the command "npm install" to install all packages necessary for the webapp.
-4. Run "npm start" to use the webapp
-5. Apart running in the local machine you can directly make use of <a href="https://treasure-hunt-v1.netlify.app/">Deployed Link</a>
+1.Fork the Repo<br/><br/>
+<a href="https://github.com/rajat-gith/treasure-hunt/" target="_blank">Github Repo</a><br/>
+2. Clone the Repository into local folder.<br/>
+3. Run the command "npm install" to install all packages necessary for the webapp.<br/>
+4. Run "npm start" to use the webapp<br/>
+5. Apart running in the local machine you can directly make use of <a href="https://treasure-hunt-v1.netlify.app/" target="_blank">Deployed Link</a>
 
 <h2>Brief Logic</h2>
 In stage 1 the user is given a clue for 10 seconds and then in stage 2, the user needs to solve a challenge.<br/>
