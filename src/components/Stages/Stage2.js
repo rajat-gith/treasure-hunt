@@ -59,7 +59,7 @@ function Stage2() {
           updateDoc(docRef, {
             puzzletime: [{ seconds }, { minutes }, { hours }],
           })
-            .then((doc) => {
+            .then((docRef) => {
               console.log(
                 "A New Document Field has been added to an existing document"
               );

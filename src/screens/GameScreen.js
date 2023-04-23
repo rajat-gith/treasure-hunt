@@ -38,6 +38,7 @@ function GameScreen() {
   const { stage } = currentStage;
 
   const fetchUserName = async () => {
+    // alert("Switch to Desktop to play the game");
     try {
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
       const doc = await getDocs(q);
@@ -51,7 +52,6 @@ function GameScreen() {
   };
 
   useEffect(() => {
-    alert("Switch to Desktop to play the game");
     setActive(stage);
     console.log("active");
     if (loading) return;

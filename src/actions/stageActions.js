@@ -60,6 +60,6 @@ export const setStage = (type) => async (dispatch) => {
       type: "RESULTSTAGE",
       payload: "ResultStage",
     });
-    localStorage.setItem("stageInfo", JSON.stringify("FinalStage"));
+    localStorage.setItem("stageInfo", JSON.stringify("ResultStage"));
   }
 };
