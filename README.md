@@ -4,6 +4,7 @@ The webapp is meant to identify and measure the softskill of the user interactin
 It has two main utillizations:
 1. To measure the softskills
 2. Admin Site: To have a clear overview of all the users interacting with the game.
+3. On refreshing, from either browser or website, the puzzle start from the same State.
 
 The treasure hunt game has different stages.
 At each stage you will be given a clue and intermediate stages have some puzzles in it.
