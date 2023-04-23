@@ -63,9 +63,7 @@ function Stage4() {
               onClick={() => {
                 alert("You have reached a dead-end");
                 dispatch(setScore("DECREMENT", 20));
-                logout();
-                navigate("/");
-                alert("Your Assesment is Complete");
+                dispatch(setStage("RESULTSTAGE"));
               }}
               className="opt_1"
             >
@@ -84,9 +82,7 @@ function Stage4() {
               onClick={() => {
                 alert("You have reached a dead-end");
                 dispatch(setScore("DECREMENT", 20));
-                logout();
-                navigate("/");
-                alert("Your Assesment is Complete");
+                dispatch(setStage("RESULTSTAGE"));
               }}
               className="opt_3"
             >
