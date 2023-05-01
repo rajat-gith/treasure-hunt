@@ -68,7 +68,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     await addDoc(collection(db, "users"), {
       uid: user.uid,
       name,
-      totaltime: [],
+      totaltime: [{ seconds: 0 }, { minutes: 0 }, { hours: 0 }],
       puzzletime: [],
       authProvider: "local",
       email,

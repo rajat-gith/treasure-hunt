@@ -26,12 +26,12 @@
     padding: 4px;
     background: "#FFFF00";
     transition: all 0.3s ease-in;
-    align-items: center;
+    align-items: center ;
 }
 
 .score_board>button {
     margin-top: 10px;
-    height: 30px;
+    height: 30px;   
     border: 0px;
     width: 20%;
     border-radius: 10px;
