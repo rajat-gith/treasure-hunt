@@ -69,7 +69,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       uid: user.uid,
       name,
       totaltime: [{ seconds: 0 }, { minutes: 0 }, { hours: 0 }],
-      puzzletime: [],
+      puzzletime: [{ seconds: 0 }, { minutes: 0 }, { hours: 0 }],
       authProvider: "local",
       email,
       isAdmin: false,
